@@ -42,11 +42,10 @@ public class GUI {
 	private JButton down;
 	private JButton left;
 	private JButton right;
-	// private Clip bgm;
 	private Clip lastTokenSong;
 
 	/**
-	 * The GUI class. How the lifeform interacts with our beautiful code.
+	 * The GUI class. How the player interacts with our beautiful code.
 	 * 
 	 * @authors Christian Coffey
 	 */
@@ -70,25 +69,7 @@ public class GUI {
 		// Creating Player Info board
 		createPlayerInfoBoard();
 		refreshStats();
-		// testButton();
 		pushTileButtons();
-
-		// Why not a little music?
-		// try {
-		// AudioInputStream stream;
-		// AudioFormat format;
-		// DataLine.Info info;
-		//
-		// stream =
-		// AudioSystem.getAudioInputStream(getClass().getResource("/undertale.wav"));
-		// format = stream.getFormat();
-		// info = new DataLine.Info(Clip.class, format);
-		// bgm = (Clip) AudioSystem.getLine(info);
-		// bgm.open(stream);
-		// bgm.loop(2147483647);
-		// } catch (Exception e) {
-		// System.out.println("Sound file not found, mate.");
-		// }
 
 		try {
 			AudioInputStream stream;
@@ -100,16 +81,11 @@ public class GUI {
 			info = new DataLine.Info(Clip.class, format);
 			lastTokenSong = (Clip) AudioSystem.getLine(info);
 			lastTokenSong.open(stream);
-			// lastTokenSong.loop(2147483647);
 		} catch (Exception e) {
 			System.out.println("Sound file not found, mate.");
 		}
 
-		_frame.setDefaultCloseOperation(_frame.EXIT_ON_CLOSE);
-
-		JOptionPane.showMessageDialog(null,
-				"In this current build, if you cross over another pawn that pawn will vanish! D: BUT DON'T WORRY! "
-						+ "\nThat pawn is still there, it's just a sad little bug! Once it's that pawns turn again they will re-appear! :D");
+		_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	/**
